@@ -7,6 +7,14 @@ description: "Activate when user requests creating a website or web application.
 
 When a user asks you to create a website, web application, landing page, or dashboard, use this skill to let them preview and choose a UI style before you generate code.
 
+## Core Role
+
+cc-design is a **preview and selection protocol**, not a design intelligence authority.
+
+It solves one problem: **users should see and choose a UI style before AI generates code.**
+
+For design knowledge — which styles suit which industry, what colors and fonts to pair, what anti-patterns to avoid — cc-design relies on **you (the agent)** to bring the best knowledge available. You may have design intelligence skills (like ui-ux-pro-max or others), plugins, user-provided rules, or your own training knowledge. Use whatever produces the best recommendations, then feed the results into cc-design's preview workflow.
+
 ## When to Activate
 
 Activate when the user's request involves **creating a new web project from scratch**:
@@ -29,17 +37,31 @@ Extract from the user's description:
 - **features**: key functional modules (e.g., "article list, recipe detail, category navigation")
 - **preference**: any style preference the user mentioned
 
-### Step 2: Generate Style Variants
+### Step 2: Gather Design Intelligence
 
-Generate 3-4 distinct UI style variants. For each variant, produce:
+Before generating previews, gather the best design recommendations available to you.
+
+**You (the agent) are the orchestrator.** Consider all your knowledge sources:
+
+1. **Other design skills/plugins** — If you have access to any design intelligence skill or plugin (e.g., one that recommends styles, color palettes, typography, layout patterns for specific industries), use it. You don't need to know its name in advance — you already know what skills and tools are loaded in your session.
+2. **User-provided rules** — The user may have project-level design guidelines, brand books, or explicit preferences.
+3. **Your own knowledge** — Your training data includes substantial design knowledge. Use it.
+4. **cc-design's fallback rules** — If none of the above are available or sufficient, refer to the Basic Style Reference at the end of this file.
+
+**Your job:** Synthesize recommendations from the best available sources into cc-design's `design_system` format (defined below). No matter where the knowledge comes from, the output format is always the same.
+
+### Step 3: Generate Style Variants
+
+Generate 3-4 distinct UI style variants based on the design intelligence gathered in Step 2.
+
+For each variant, produce:
 
 1. **A complete HTML/CSS preview page** — a realistic preview of the user's actual application in that style
 2. **A design_system JSON** — structured style definition for later code generation
 
-**Generation rules:**
+**Preview generation rules:**
 
-- Each variant MUST come from a different style family (unless regenerating with a specific base_style)
-- Differences must be visually obvious: different color palettes, typography, layout structure, visual effects
+- Each variant MUST be visually distinct: different color palettes, typography, layout structure, visual effects
 - Preview content must be based on the user's actual application (a food blog shows food blog content, not generic placeholders)
 - Use real Chinese/English content, never Lorem ipsum
 - Each preview must include at minimum: navigation bar, hero section, main content area
@@ -47,7 +69,7 @@ Generate 3-4 distinct UI style variants. For each variant, produce:
 - Load fonts via Google Fonts CDN
 - Set `min-width: 800px` on body for proper iframe display
 
-**Output format for each variant:**
+**design_system format (the interface contract):**
 
 ```json
 {
@@ -77,7 +99,9 @@ Generate 3-4 distinct UI style variants. For each variant, produce:
 }
 ```
 
-### Step 3: Show Previews
+Any design intelligence source can inform the values above. cc-design does not care where the recommendations came from — only that they are expressed in this format.
+
+### Step 4: Show Previews
 
 Call the MCP tool to serve previews:
 
@@ -85,22 +109,22 @@ Call the MCP tool to serve previews:
 create_style_preview({
   app_description: "美食博客网站",
   round: 1,
-  styles: [ ...array of style objects from Step 2... ]
+  styles: [ ...array of style objects from Step 3... ]
 })
 ```
 
 Tell the user to open the returned `preview_url` in their browser to view and select a style.
 
-### Step 4: Get Selection
+### Step 5: Get Selection
 
 Call `get_user_selection({ session_id })` to check the user's choice.
 
 Three possible outcomes:
-- **`selected`** → proceed to Step 5 with the returned `design_system`
-- **`regenerate`** → go back to Step 2, using `base_style` and `feedback` to guide new variants. Call `create_style_preview` with `session_id` (to append) and `round: 2` (or 3, etc.)
+- **`selected`** → proceed to Step 6 with the returned `design_system`
+- **`regenerate`** → go back to Step 3, using `base_style` and `feedback` to guide new variants. Call `create_style_preview` with `session_id` (to append) and `round: 2` (or 3, etc.)
 - **`pending`** → the user hasn't made a choice yet, wait and try again
 
-### Step 5: Persist Design System
+### Step 6: Persist Design System
 
 Save the selected style's design_system to the project:
 
@@ -124,7 +148,7 @@ Create `.cc-design/design-system.json`:
 }
 ```
 
-### Step 6: Generate Application Code
+### Step 7: Generate Application Code
 
 Generate the full project code following the design_system strictly:
 - Use the exact colors, fonts, border-radius, and shadow values
@@ -133,15 +157,17 @@ Generate the full project code following the design_system strictly:
 - Avoid all listed anti_patterns
 - Before delivering, check against the pre_delivery_checklist
 
-### Step 7: Clean Up
+### Step 8: Clean Up
 
 Call `stop_preview({ session_id })` to shut down the preview server.
 
 ---
 
-## Style Knowledge Base
+## Basic Style Reference (Fallback)
 
-### Style Families
+The tables below provide basic design guidance. **Use these only when you have no better source of design knowledge** — if you have access to specialized design skills, plugins, or detailed user-provided guidelines, prefer those.
+
+### Common Style Families
 
 | Style | Visual Keywords | Best For | Avoid For |
 |-------|----------------|----------|-----------|
@@ -161,7 +187,7 @@ Call `stop_preview({ session_id })` to shut down the preview server.
 | Cyberpunk 赛博朋克 | Neon, dark, glitch effects | Gaming, crypto, tech | Health, education |
 | Swiss Modernism 瑞士现代 | Grid system, Helvetica, order | Corporate, architecture | Entertainment |
 
-### Industry Reasoning Rules
+### Basic Industry Rules
 
 | Industry | Recommended Styles (Priority) | Color Tendency | Font Tendency | Must Avoid |
 |----------|------------------------------|----------------|---------------|------------|
