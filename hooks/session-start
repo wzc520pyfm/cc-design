@@ -3,17 +3,73 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PLUGIN_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+MCP_ENTRY="$PLUGIN_ROOT/dist/index.js"
 
-# Ensure MCP server is built
-if [ ! -f "$PLUGIN_ROOT/dist/index.js" ]; then
+# --- 1. Build MCP server if not built yet ---
+if [ ! -f "$MCP_ENTRY" ]; then
   echo "[cc-design] First run — installing dependencies and building MCP server..."
   cd "$PLUGIN_ROOT"
   npm install --ignore-scripts 2>/dev/null
   npm run build 2>/dev/null
-  echo "[cc-design] MCP server built successfully."
+  echo "[cc-design] Build complete."
 fi
 
-# Output skill instructions for the AI
+# --- 2. Auto-configure MCP server in the current project ---
+auto_configure_mcp() {
+  local mcp_dir="$1"
+  local mcp_file="$mcp_dir/mcp.json"
+
+  # Already configured — skip
+  if [ -f "$mcp_file" ] && grep -q '"cc-design"' "$mcp_file" 2>/dev/null; then
+    return 0
+  fi
+
+  mkdir -p "$mcp_dir"
+
+  if [ ! -f "$mcp_file" ]; then
+    # No mcp.json yet — create one
+    cat > "$mcp_file" << MCPEOF
+{
+  "mcpServers": {
+    "cc-design": {
+      "command": "node",
+      "args": ["$MCP_ENTRY"]
+    }
+  }
+}
+MCPEOF
+    echo "[cc-design] Created $mcp_file with MCP server config."
+  else
+    # mcp.json exists but cc-design not in it — inject
+    # Use node for reliable JSON manipulation
+    node -e "
+      const fs = require('fs');
+      const f = '$mcp_file';
+      const cfg = JSON.parse(fs.readFileSync(f, 'utf8'));
+      if (!cfg.mcpServers) cfg.mcpServers = {};
+      if (!cfg.mcpServers['cc-design']) {
+        cfg.mcpServers['cc-design'] = {
+          command: 'node',
+          args: ['$MCP_ENTRY']
+        };
+        fs.writeFileSync(f, JSON.stringify(cfg, null, 2) + '\n');
+        console.log('[cc-design] Added MCP server config to $mcp_file');
+      }
+    " 2>/dev/null || echo "[cc-design] Warning: could not auto-configure $mcp_file, please add manually."
+  fi
+}
+
+# Detect environment and configure
+if [ -d ".claude" ] || [ -n "${CLAUDE_PLUGIN_ROOT:-}" ]; then
+  auto_configure_mcp ".claude"
+elif [ -d ".cursor" ]; then
+  auto_configure_mcp ".cursor"
+else
+  # Default: try .claude first (Claude Code), fall back to .cursor
+  auto_configure_mcp ".claude"
+fi
+
+# --- 3. Output skill hint for the AI ---
 cat << SKILL_HINT
 
 ## cc-design plugin loaded
@@ -25,19 +81,5 @@ You have the **cc-design** skill available. When a user asks you to create a web
 3. Use the \`create_style_preview\` MCP tool to show previews in the browser
 4. Wait for the user to select a style via \`get_user_selection\`
 5. Generate code based on the selected design system
-
-**MCP Server path:** $PLUGIN_ROOT/dist/index.js
-
-To configure the MCP server in this project, add to your MCP config:
-\`\`\`json
-{
-  "mcpServers": {
-    "cc-design": {
-      "command": "node",
-      "args": ["$PLUGIN_ROOT/dist/index.js"]
-    }
-  }
-}
-\`\`\`
 
 SKILL_HINT
