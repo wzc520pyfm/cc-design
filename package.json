@@ -1,0 +1,35 @@
+{
+  "name": "cc-design",
+  "version": "0.1.0",
+  "description": "AI style preview and selection before code generation — a Claude Code / Cursor MCP plugin",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "cc-design": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "start": "node dist/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "design",
+    "ui",
+    "style",
+    "preview",
+    "claude",
+    "cursor"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.28.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.2"
+  }
+}
