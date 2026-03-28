@@ -1,0 +1,22 @@
+{
+  "name": "cc-design",
+  "displayName": "cc-design",
+  "description": "AI style preview and selection before code generation — preview multiple UI styles in browser, choose your favorite, then AI generates code",
+  "version": "0.1.0",
+  "author": {
+    "name": "wangzhichao"
+  },
+  "homepage": "https://github.com/wzc520pyfm/cc-design",
+  "repository": "https://github.com/wzc520pyfm/cc-design",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "design",
+    "ui",
+    "style",
+    "preview",
+    "skills"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks-cursor.json"
+}

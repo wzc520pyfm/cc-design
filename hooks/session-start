@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PLUGIN_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+# Ensure MCP server is built
+if [ ! -f "$PLUGIN_ROOT/dist/index.js" ]; then
+  echo "[cc-design] First run — installing dependencies and building MCP server..."
+  cd "$PLUGIN_ROOT"
+  npm install --ignore-scripts 2>/dev/null
+  npm run build 2>/dev/null
+  echo "[cc-design] MCP server built successfully."
+fi
+
+# Output skill instructions for the AI
+cat << SKILL_HINT
+
+## cc-design plugin loaded
+
+You have the **cc-design** skill available. When a user asks you to create a website, web application, landing page, or dashboard from scratch, you MUST:
+
+1. Read the cc-design SKILL.md to learn the full workflow
+2. Generate multiple UI style variants with preview HTML
+3. Use the \`create_style_preview\` MCP tool to show previews in the browser
+4. Wait for the user to select a style via \`get_user_selection\`
+5. Generate code based on the selected design system
+
+**MCP Server path:** $PLUGIN_ROOT/dist/index.js
+
+To configure the MCP server in this project, add to your MCP config:
+\`\`\`json
+{
+  "mcpServers": {
+    "cc-design": {
+      "command": "node",
+      "args": ["$PLUGIN_ROOT/dist/index.js"]
+    }
+  }
+}
+\`\`\`
+
+SKILL_HINT
