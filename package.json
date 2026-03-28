@@ -1,5 +1,5 @@
 {
-  "name": "cc-design",
+  "name": "cc-design-cli",
   "version": "0.1.0",
   "description": "AI style preview and selection before code generation — preview UI styles, choose your favorite, then AI generates code",
   "type": "module",

@@ -67,7 +67,7 @@ function configureMcp(mcpFile: string): void {
 
   config.mcpServers!['cc-design'] = {
     command: 'npx',
-    args: ['-y', 'cc-design'],
+    args: ['-y', 'cc-design-cli'],
   };
 
   fs.writeFileSync(mcpFile, JSON.stringify(config, null, 2) + '\n');
@@ -107,7 +107,7 @@ export async function runInit(args: string[]): Promise<void> {
   if (!platform || !PLATFORMS[platform]) {
     console.log('cc-design — AI style preview & selection\n');
     console.log('Usage:');
-    console.log('  npx cc-design init --ai <platform> [--global]\n');
+    console.log('  npx cc-design-cli init --ai <platform> [--global]\n');
     console.log('Platforms:');
     console.log('  claude    Claude Code');
     console.log('  cursor    Cursor');
