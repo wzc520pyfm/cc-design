@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cc-design — 选择 UI 风格</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/gallery.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-left">
+      <span class="logo">cc-design</span>
+      <span class="header-divider"></span>
+      <span class="header-desc">为 <strong>{{APP_DESCRIPTION}}</strong> 选择 UI 风格</span>
+    </div>
+    <div class="header-right">
+      <span class="style-count" id="styleCount"></span>
+      <button class="btn-regenerate" onclick="showRegenerateModal()">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.65 2.35A7.95 7.95 0 0 0 8 0C3.58 0 .01 3.58.01 8S3.58 16 8 16c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 8 14 6 6 0 1 1 8 2c1.66 0 3.14.69 4.22 1.78L9 7h7V0l-2.35 2.35z" fill="currentColor"/></svg>
+        都不喜欢，再来一批
+      </button>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="main-header">
+      <h1 class="main-title">选择你喜欢的风格</h1>
+      <p class="main-subtitle" id="mainSubtitle">点击卡片选择一个风格方案，AI 将基于该风格为你生成完整代码</p>
+    </div>
+    <div id="rounds-container"></div>
+  </main>
+
+  <div class="bottom-bar" id="bottomBar">
+    <div class="bottom-bar-inner">
+      <span class="bottom-bar-label" id="bottomBarLabel">✓ 已选择</span>
+      <button class="btn-confirm" onclick="confirmSelection()">确认选择，开始生成代码</button>
+    </div>
+  </div>
+
+  <div class="fullscreen-overlay" id="fullscreenOverlay">
+    <div class="fullscreen-header">
+      <span class="fullscreen-title" id="fullscreenTitle"></span>
+      <button class="fullscreen-close" onclick="closeFullscreen()">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M15 5L5 15M5 5l10 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <iframe id="fullscreenIframe" class="fullscreen-iframe"></iframe>
+  </div>
+
+  <div class="feedback-modal" id="feedbackModal">
+    <div class="feedback-card">
+      <h2 class="feedback-title">想要什么方向的风格？</h2>
+      <p class="feedback-subtitle">选择一个风格方向或描述你想要的效果</p>
+      <div class="style-family-list" id="styleFamilyList"></div>
+      <textarea class="feedback-textarea" id="feedbackText" placeholder="描述你想要的风格方向，例如：更简约、更有科技感、暖色调..."></textarea>
+      <div class="feedback-actions">
+        <button class="btn-cancel" onclick="closeRegenerateModal()">取消</button>
+        <button class="btn-submit" onclick="submitRegenerate()">生成新风格</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    window.__CC_DESIGN__ = {
+      sessionId: "{{SESSION_ID}}",
+      appDescription: "{{APP_DESCRIPTION}}"
+    };
+  </script>
+  <script src="/gallery.js"></script>
+</body>
+</html>
