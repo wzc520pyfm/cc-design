@@ -1,0 +1,452 @@
+[
+  {
+    "id": "glassmorphism",
+    "name": "Glassmorphism",
+    "name_zh": "玻璃拟态",
+    "description": "半透明毛玻璃质感，现代感十足",
+    "keywords": ["半透明", "毛玻璃", "模糊背景", "现代"],
+    "best_for": ["SaaS", "金融仪表盘", "现代应用"],
+    "avoid_for": ["老年用户", "低端设备"],
+    "category": "modern"
+  },
+  {
+    "id": "neumorphism",
+    "name": "Neumorphism",
+    "name_zh": "新拟态",
+    "description": "柔和凹凸光影，内嵌浮雕质感",
+    "keywords": ["凹凸", "光影", "柔和阴影", "浮雕"],
+    "best_for": ["智能家居", "音乐播放器", "个人仪表盘"],
+    "avoid_for": ["信息密集页面", "低对比度敏感用户"],
+    "category": "modern"
+  },
+  {
+    "id": "aurora-ui",
+    "name": "Aurora UI",
+    "name_zh": "极光界面",
+    "description": "流动色彩渐变，如极光般梦幻",
+    "keywords": ["极光", "流动渐变", "梦幻", "色彩"],
+    "best_for": ["创意工具", "品牌官网", "社交应用"],
+    "avoid_for": ["企业后台", "低端设备"],
+    "category": "modern"
+  },
+  {
+    "id": "soft-ui-evolution",
+    "name": "Soft UI Evolution",
+    "name_zh": "柔和进化",
+    "description": "新拟态的进化版，更易读更实用",
+    "keywords": ["柔和", "圆角", "低对比", "舒适"],
+    "best_for": ["健康应用", "冥想工具", "生活方式"],
+    "avoid_for": ["数据密集型", "高效率工具"],
+    "category": "modern"
+  },
+  {
+    "id": "liquid-glass",
+    "name": "Liquid Glass",
+    "name_zh": "液态玻璃",
+    "description": "流体形态玻璃质感，动态折射",
+    "keywords": ["液态", "折射", "流体", "透明", "动态"],
+    "best_for": ["科技产品", "概念展示", "高端品牌"],
+    "avoid_for": ["性能敏感场景", "老旧浏览器"],
+    "category": "modern"
+  },
+  {
+    "id": "dimensional-layering",
+    "name": "Dimensional Layering",
+    "name_zh": "维度分层",
+    "description": "多层叠加营造空间深度与层次",
+    "keywords": ["分层", "深度", "叠加", "空间感"],
+    "best_for": ["项目管理", "协作工具", "复杂应用"],
+    "avoid_for": ["简单落地页", "极简需求"],
+    "category": "modern"
+  },
+  {
+    "id": "gradient-mesh",
+    "name": "Gradient Mesh",
+    "name_zh": "渐变网格",
+    "description": "多点渐变网格，丰富色彩过渡",
+    "keywords": ["网格渐变", "多色", "色彩过渡", "艺术"],
+    "best_for": ["品牌设计", "创意官网", "艺术展示"],
+    "avoid_for": ["企业严肃场景", "信息优先页面"],
+    "category": "modern"
+  },
+  {
+    "id": "ai-native-ui",
+    "name": "AI-Native UI",
+    "name_zh": "AI原生界面",
+    "description": "为AI交互设计的对话式界面",
+    "keywords": ["AI", "对话式", "智能", "自适应"],
+    "best_for": ["AI产品", "智能助手", "自动化工具"],
+    "avoid_for": ["传统电商", "静态展示"],
+    "category": "modern"
+  },
+  {
+    "id": "spatial-ui",
+    "name": "Spatial UI (VisionOS)",
+    "name_zh": "空间界面",
+    "description": "空间计算风格，浮动面板与景深",
+    "keywords": ["空间计算", "浮动", "景深", "VisionOS"],
+    "best_for": ["XR应用", "空间计算", "前沿科技展示"],
+    "avoid_for": ["传统Web", "2D优先场景"],
+    "category": "modern"
+  },
+  {
+    "id": "minimalism",
+    "name": "Minimalism",
+    "name_zh": "极简主义",
+    "description": "少即是多，留白与克制的美学",
+    "keywords": ["留白", "克制", "简洁", "清晰"],
+    "best_for": ["作品集", "博客", "企业官网"],
+    "avoid_for": ["功能密集型应用", "娱乐平台"],
+    "category": "classic"
+  },
+  {
+    "id": "swiss-modernism",
+    "name": "Swiss Modernism",
+    "name_zh": "瑞士现代主义",
+    "description": "网格系统与无衬线字体的理性美",
+    "keywords": ["网格", "无衬线", "秩序", "理性", "排版"],
+    "best_for": ["企业官网", "年报", "学术机构"],
+    "avoid_for": ["娱乐产品", "儿童应用"],
+    "category": "classic"
+  },
+  {
+    "id": "flat-design",
+    "name": "Flat Design",
+    "name_zh": "扁平设计",
+    "description": "纯色块无阴影，清晰直观的界面",
+    "keywords": ["扁平", "纯色", "无阴影", "图标化"],
+    "best_for": ["移动应用", "操作系统", "工具类产品"],
+    "avoid_for": ["奢侈品牌", "沉浸式体验"],
+    "category": "classic"
+  },
+  {
+    "id": "skeuomorphism",
+    "name": "Skeuomorphism",
+    "name_zh": "拟物化",
+    "description": "模拟真实物体质感与光影细节",
+    "keywords": ["拟物", "真实质感", "光影", "纹理"],
+    "best_for": ["游戏界面", "音乐应用", "怀旧风格"],
+    "avoid_for": ["效率工具", "极简需求"],
+    "category": "classic"
+  },
+  {
+    "id": "editorial-magazine",
+    "name": "Editorial / Magazine",
+    "name_zh": "杂志编辑风",
+    "description": "杂志般的排版布局，强调阅读体验",
+    "keywords": ["排版", "杂志", "大字体", "编辑", "图文"],
+    "best_for": ["媒体网站", "在线杂志", "品牌故事"],
+    "avoid_for": ["后台管理", "数据工具"],
+    "category": "classic"
+  },
+  {
+    "id": "e-ink-paper",
+    "name": "E-Ink / Paper",
+    "name_zh": "电子墨水/纸张风",
+    "description": "模拟纸张与电子墨水的素雅质感",
+    "keywords": ["纸张", "墨水", "素雅", "低饱和"],
+    "best_for": ["阅读应用", "笔记工具", "知识管理"],
+    "avoid_for": ["社交媒体", "视觉冲击型"],
+    "category": "classic"
+  },
+  {
+    "id": "exaggerated-minimalism",
+    "name": "Exaggerated Minimalism",
+    "name_zh": "极致极简",
+    "description": "极端留白与超大字体的张力表达",
+    "keywords": ["超大字体", "极端留白", "张力", "戏剧化"],
+    "best_for": ["高端品牌", "艺术画廊", "建筑事务所"],
+    "avoid_for": ["功能型应用", "内容密集页面"],
+    "category": "classic"
+  },
+  {
+    "id": "brutalism",
+    "name": "Brutalism",
+    "name_zh": "粗野主义",
+    "description": "原始粗犷，打破常规的视觉冲击",
+    "keywords": ["粗犷", "原始", "无修饰", "冲击力"],
+    "best_for": ["艺术项目", "独立品牌", "实验性网站"],
+    "avoid_for": ["企业客户", "医疗健康"],
+    "category": "bold"
+  },
+  {
+    "id": "neubrutalism",
+    "name": "Neubrutalism",
+    "name_zh": "新粗野主义",
+    "description": "粗边框明亮色块，友好的粗野风",
+    "keywords": ["粗边框", "明亮色块", "阴影偏移", "友好"],
+    "best_for": ["创意机构", "Web3产品", "年轻品牌"],
+    "avoid_for": ["传统金融", "政府网站"],
+    "category": "bold"
+  },
+  {
+    "id": "gen-z-maximalism",
+    "name": "Gen Z Maximalism",
+    "name_zh": "Z世代极繁主义",
+    "description": "大胆撞色与混搭的感官盛宴",
+    "keywords": ["撞色", "混搭", "大胆", "多元", "潮流"],
+    "best_for": ["潮牌电商", "社交应用", "娱乐平台"],
+    "avoid_for": ["商务应用", "老年用户"],
+    "category": "bold"
+  },
+  {
+    "id": "memphis-design",
+    "name": "Memphis Design",
+    "name_zh": "孟菲斯设计",
+    "description": "几何图案与高饱和色彩的后现代风",
+    "keywords": ["几何", "高饱和", "后现代", "图案", "波点"],
+    "best_for": ["儿童产品", "创意展览", "活动页面"],
+    "avoid_for": ["严肃商务", "阅读类产品"],
+    "category": "bold"
+  },
+  {
+    "id": "kinetic-typography",
+    "name": "Kinetic Typography",
+    "name_zh": "动态排版",
+    "description": "文字即动画，以运动表达信息",
+    "keywords": ["动态文字", "排版动画", "运动", "视觉节奏"],
+    "best_for": ["品牌宣传", "创意机构", "音乐网站"],
+    "avoid_for": ["信息查询", "无障碍要求高"],
+    "category": "bold"
+  },
+  {
+    "id": "chromatic-aberration",
+    "name": "Chromatic Aberration",
+    "name_zh": "色差分离",
+    "description": "RGB通道偏移的迷幻视觉效果",
+    "keywords": ["色差", "RGB偏移", "迷幻", "故障风"],
+    "best_for": ["音乐活动", "潮流品牌", "夜店场景"],
+    "avoid_for": ["易读性优先", "企业应用"],
+    "category": "bold"
+  },
+  {
+    "id": "anti-polish-raw",
+    "name": "Anti-Polish / Raw",
+    "name_zh": "反精致/原始风",
+    "description": "刻意粗糙未完成感，真实不做作",
+    "keywords": ["粗糙", "未完成", "真实", "手工感"],
+    "best_for": ["独立厂牌", "地下文化", "反主流品牌"],
+    "avoid_for": ["高端零售", "医疗健康"],
+    "category": "bold"
+  },
+  {
+    "id": "dark-immersive",
+    "name": "Dark Immersive",
+    "name_zh": "暗黑沉浸",
+    "description": "深色背景聚焦内容的沉浸体验",
+    "keywords": ["暗色", "沉浸", "聚焦", "高级感"],
+    "best_for": ["视频平台", "游戏", "影视制作工具"],
+    "avoid_for": ["儿童应用", "户外阅读场景"],
+    "category": "immersive"
+  },
+  {
+    "id": "cyberpunk",
+    "name": "Cyberpunk",
+    "name_zh": "赛博朋克",
+    "description": "霓虹暗夜中的高科技低生活美学",
+    "keywords": ["霓虹", "暗夜", "高科技", "赛博"],
+    "best_for": ["游戏网站", "科技产品", "夜间应用"],
+    "avoid_for": ["自然品牌", "教育平台"],
+    "category": "immersive"
+  },
+  {
+    "id": "hud-scifi-fui",
+    "name": "HUD / Sci-Fi FUI",
+    "name_zh": "科幻界面",
+    "description": "未来感抬头显示器风格的数据界面",
+    "keywords": ["HUD", "科幻", "数据可视化", "未来"],
+    "best_for": ["数据大屏", "监控中心", "科技演示"],
+    "avoid_for": ["消费级应用", "电商平台"],
+    "category": "immersive"
+  },
+  {
+    "id": "retro-futurism",
+    "name": "Retro-Futurism",
+    "name_zh": "复古未来",
+    "description": "过去想象中的未来，怀旧与科幻交融",
+    "keywords": ["复古", "未来", "太空时代", "怀旧科幻"],
+    "best_for": ["航天主题", "创意展览", "品牌跨界"],
+    "avoid_for": ["现代商务", "实用工具"],
+    "category": "immersive"
+  },
+  {
+    "id": "vaporwave",
+    "name": "Vaporwave",
+    "name_zh": "蒸汽波",
+    "description": "粉紫渐变与复古数字的迷离美学",
+    "keywords": ["粉紫", "复古数字", "迷离", "日系"],
+    "best_for": ["音乐平台", "潮流文化", "艺术社区"],
+    "avoid_for": ["商务场景", "政务系统"],
+    "category": "immersive"
+  },
+  {
+    "id": "y2k-aesthetic",
+    "name": "Y2K Aesthetic",
+    "name_zh": "千禧美学",
+    "description": "千禧年的金属光泽与未来乐观主义",
+    "keywords": ["千禧", "金属光泽", "泡泡字体", "乐观"],
+    "best_for": ["时尚品牌", "Z世代产品", "怀旧营销"],
+    "avoid_for": ["严肃金融", "老年用户"],
+    "category": "immersive"
+  },
+  {
+    "id": "parallax-storytelling",
+    "name": "Parallax Storytelling",
+    "name_zh": "视差叙事",
+    "description": "滚动视差驱动的沉浸式故事体验",
+    "keywords": ["视差", "滚动", "叙事", "沉浸", "故事"],
+    "best_for": ["品牌故事", "年度报告", "产品发布"],
+    "avoid_for": ["工具类应用", "移动端优先"],
+    "category": "immersive"
+  },
+  {
+    "id": "3d-hyperrealism",
+    "name": "3D Hyperrealism",
+    "name_zh": "3D超写实",
+    "description": "超写实3D渲染融入界面设计",
+    "keywords": ["3D", "超写实", "渲染", "立体"],
+    "best_for": ["产品展示", "汽车官网", "奢侈品牌"],
+    "avoid_for": ["低带宽场景", "低端设备"],
+    "category": "immersive"
+  },
+  {
+    "id": "bento-grid",
+    "name": "Bento Grid",
+    "name_zh": "便当盒网格",
+    "description": "模块化网格布局，信息分区清晰",
+    "keywords": ["网格", "模块化", "便当盒", "分区"],
+    "best_for": ["功能展示", "仪表盘", "产品特性页"],
+    "avoid_for": ["长文阅读", "叙事型页面"],
+    "category": "functional"
+  },
+  {
+    "id": "accessible-design",
+    "name": "Accessible Design",
+    "name_zh": "无障碍设计",
+    "description": "高对比度大字体，人人可用的设计",
+    "keywords": ["无障碍", "高对比度", "大字体", "可访问"],
+    "best_for": ["政府网站", "公共服务", "医疗健康"],
+    "avoid_for": ["视觉冲击型", "实验性设计"],
+    "category": "functional"
+  },
+  {
+    "id": "inclusive-design",
+    "name": "Inclusive Design",
+    "name_zh": "包容性设计",
+    "description": "兼顾多元用户群体的通用设计",
+    "keywords": ["包容", "多元", "通用", "弹性布局"],
+    "best_for": ["全球化产品", "教育平台", "社区应用"],
+    "avoid_for": ["极端风格化", "小众市场"],
+    "category": "functional"
+  },
+  {
+    "id": "zero-interface",
+    "name": "Zero Interface",
+    "name_zh": "零界面",
+    "description": "隐去界面元素，内容即是交互",
+    "keywords": ["无界面", "隐形", "内容优先", "减法"],
+    "best_for": ["阅读应用", "冥想工具", "专注类产品"],
+    "avoid_for": ["功能复杂应用", "新手引导"],
+    "category": "functional"
+  },
+  {
+    "id": "voice-first-multimodal",
+    "name": "Voice-First Multimodal",
+    "name_zh": "语音优先多模态",
+    "description": "语音驱动交互，视觉为辅的界面",
+    "keywords": ["语音", "多模态", "对话", "免触控"],
+    "best_for": ["车载系统", "智能音箱", "无障碍产品"],
+    "avoid_for": ["安静环境", "纯视觉内容"],
+    "category": "functional"
+  },
+  {
+    "id": "micro-interactions",
+    "name": "Micro-interactions",
+    "name_zh": "微交互",
+    "description": "精致小动效提升操作反馈与愉悦感",
+    "keywords": ["微动效", "反馈", "过渡", "愉悦"],
+    "best_for": ["移动应用", "社交产品", "日常工具"],
+    "avoid_for": ["性能敏感", "极简需求"],
+    "category": "functional"
+  },
+  {
+    "id": "motion-driven",
+    "name": "Motion-Driven",
+    "name_zh": "动效驱动",
+    "description": "以运动和动画为核心的叙事体验",
+    "keywords": ["动画", "过渡", "运动", "流畅", "叙事"],
+    "best_for": ["品牌官网", "产品发布", "创意机构"],
+    "avoid_for": ["弱网环境", "无障碍要求高"],
+    "category": "functional"
+  },
+  {
+    "id": "organic-biophilic",
+    "name": "Organic / Biophilic",
+    "name_zh": "有机自然",
+    "description": "自然曲线与生物形态的温暖设计",
+    "keywords": ["有机", "自然", "曲线", "生物形态"],
+    "best_for": ["环保品牌", "健康养生", "食品行业"],
+    "avoid_for": ["科技极客", "工业风格"],
+    "category": "creative"
+  },
+  {
+    "id": "nature-distilled",
+    "name": "Nature Distilled",
+    "name_zh": "自然提炼",
+    "description": "提取自然元素的抽象化高级表达",
+    "keywords": ["自然抽象", "提炼", "大地色", "质朴"],
+    "best_for": ["可持续品牌", "高端酒店", "生活方式"],
+    "avoid_for": ["科幻主题", "赛博风格"],
+    "category": "creative"
+  },
+  {
+    "id": "claymorphism",
+    "name": "Claymorphism",
+    "name_zh": "黏土态",
+    "description": "3D黏土质感的圆润可爱风格",
+    "keywords": ["黏土", "圆润", "3D", "可爱", "柔软"],
+    "best_for": ["儿童应用", "教育产品", "趣味工具"],
+    "avoid_for": ["严肃商务", "金融平台"],
+    "category": "creative"
+  },
+  {
+    "id": "pixel-art",
+    "name": "Pixel Art",
+    "name_zh": "像素艺术",
+    "description": "复古像素风格的游戏化视觉体验",
+    "keywords": ["像素", "复古游戏", "8-bit", "怀旧"],
+    "best_for": ["游戏产品", "独立开发者", "怀旧主题"],
+    "avoid_for": ["高端品牌", "企业应用"],
+    "category": "creative"
+  },
+  {
+    "id": "vintage-analog",
+    "name": "Vintage Analog",
+    "name_zh": "复古模拟",
+    "description": "模拟胶片与旧媒介的温暖质感",
+    "keywords": ["胶片", "复古", "做旧", "温暖", "模拟"],
+    "best_for": ["摄影网站", "咖啡品牌", "手工艺品"],
+    "avoid_for": ["科技产品", "未来主题"],
+    "category": "creative"
+  },
+  {
+    "id": "interactive-cursor",
+    "name": "Interactive Cursor",
+    "name_zh": "交互光标",
+    "description": "光标驱动的创意交互与视觉响应",
+    "keywords": ["光标", "鼠标跟随", "交互", "创意"],
+    "best_for": ["创意作品集", "互动展览", "实验性网站"],
+    "avoid_for": ["触屏设备", "无障碍要求高"],
+    "category": "creative"
+  },
+  {
+    "id": "tactile-digital",
+    "name": "Tactile Digital",
+    "name_zh": "触感数字",
+    "description": "模拟真实触感与材质的数字界面",
+    "keywords": ["触感", "材质", "肌理", "数字手工"],
+    "best_for": ["手工品牌", "设计工具", "创意社区"],
+    "avoid_for": ["纯信息型", "高速浏览场景"],
+    "category": "creative"
+  }
+]
