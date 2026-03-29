@@ -27,6 +27,7 @@ export async function handleGetSelection(
   if (lastEvent.type === 'select' && lastEvent.styleId) {
     const style = sessionManager.findStyle(params.session_id, lastEvent.styleId);
     if (style) {
+      sessionManager.clearEvents(params.session_id);
       return {
         status: 'selected',
         selected_style: {
@@ -40,6 +41,7 @@ export async function handleGetSelection(
   }
 
   if (lastEvent.type === 'regenerate') {
+    sessionManager.clearEvents(params.session_id);
     return {
       status: 'regenerate',
       base_style: lastEvent.base_style,

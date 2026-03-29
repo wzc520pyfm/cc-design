@@ -164,6 +164,10 @@ export class SessionManager {
     }
   }
 
+  clearEvents(sessionId: string): void {
+    fs.writeFileSync(this.eventsPath(sessionId), JSON.stringify([], null, 2), 'utf-8');
+  }
+
   destroySession(sessionId: string): void {
     const dir = this.sessionDir(sessionId);
     fs.rmSync(dir, { recursive: true, force: true });
