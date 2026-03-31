@@ -8,7 +8,7 @@
     {
       "name": "cc-design",
       "description": "AI style preview and selection before code generation — preview multiple UI styles in browser, choose your favorite, then AI generates code",
-      "version": "0.1.0",
+      "version": "0.1.3",
       "source": "./",
       "author": {
         "name": "wangzhichao"
