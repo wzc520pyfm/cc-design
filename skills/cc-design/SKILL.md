@@ -27,6 +27,31 @@ Activate when the user's request involves **creating a new web project from scra
 - Pure backend/API work
 - User explicitly opts out ("不需要选风格", "直接生成", "skip style selection")
 
+## Cost, Speed, and Token Use
+
+Steps **3–5** (several full inline HTML previews + MCP round-trips) are **high-token and often slow**. The skill still defaults to full previews when that is what the user wants—but you should make the tradeoff **visible and optional**, not silent.
+
+### Cost-aware checkpoint (before Step 3)
+
+**When:** After Step 2 (design intelligence gathered), **before** you generate 3–4 `preview_html` documents.
+
+**Unless** the user has already clearly chosen a path in the same conversation (e.g. 「就要预览对比」「直接生成不要预览」), send a **short** message (a few sentences, not a wall of text) that:
+
+1. **Full style preview** — Continue with Step 3–5 as usual (gallery + selection).
+2. **Skip previews** — If they prefer: you synthesize **one** `design_system` from Step 2 only, write `.cc-design/design-system.json` (Step 6), then Step 7 **without** calling `create_style_preview`, `get_user_selection`, or `stop_preview` (no session).
+3. **Cheaper / faster model** — They can **switch to a lower-cost or faster model** in their client for this thread (especially before Step 3), then continue. Wording should be client-agnostic (e.g. “在你用的 IDE / 对话里换一个更省 token 或更快的模型”); do not invent vendor pricing.
+
+**Keep it smart, not noisy:**
+
+| Situation | What to do |
+|-----------|------------|
+| User already asked for multiple styles / side‑by‑side / gallery | One line: previews are token-heavy; proceed unless they change their mind. |
+| User gave a **detailed** visual spec (colors, fonts, layout) | Briefly note that **skipping previews** may save tokens while still matching their spec—ask if they want that. |
+| User said skip / direct build / 不要预览 | **No** checkpoint; go to skip path (single `design_system` → Step 6 → Step 7). |
+| **Regenerate** (round ≥ 2) before another Step 3 | Remind that **each round** repeats similar cost; encourage precise feedback to avoid extra rounds. |
+
+If the user chooses **skip previews**, you still follow Step 6’s JSON shape; omit gallery-only fields from tool calls since no MCP session is created.
+
 ## Workflow
 
 ### Step 1: Analyze Requirements

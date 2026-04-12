@@ -76,8 +76,8 @@ cat << SKILL_HINT
 
 You have the **cc-design** skill available. When a user asks you to create a website, web application, landing page, or dashboard from scratch, you MUST:
 
-1. Read the cc-design SKILL.md to learn the full workflow
-2. Generate multiple UI style variants with preview HTML
+1. Read the cc-design SKILL.md to learn the full workflow (including **cost-aware checkpoint**: previews use many tokens—offer skip or cheaper model before generating 3–4 full HTML previews).
+2. Before emitting 3–4 full HTML previews, follow SKILL.md’s **cost-aware checkpoint** (or skip it when the skill lists exceptions); then generate variants and preview HTML as usual
 3. Use the \`create_style_preview\` MCP tool to show previews in the browser
 4. Wait for the user to select a style via \`get_user_selection\`
 5. Generate code based on the selected design system
